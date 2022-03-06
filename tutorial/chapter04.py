@@ -35,12 +35,16 @@ users = {
 }
 
 
-@app04.post("/response_model/", response_model=UserOut, response_model_exclude_unset=True)
+@app04.post(
+    "/response_model/",
+    response_model=UserOut,
+    response_model_exclude_unset=True
+)
 async def response_model(user: UserIn):
     """response_model_exclude_unset=True表示默认值不包含在响应中，仅包含实际给的值，如果实际给的值与默认值相同也会包含在响应中"""
     print(user.password)  # password不会被返回
-    # return user
-    return users["user01"]
+    return user
+    #return users["user01"]
 
 
 @app04.post(

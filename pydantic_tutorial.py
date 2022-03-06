@@ -41,6 +41,7 @@ external_data = {
 }
 user = User(**external_data)
 print(user.id, user.friends)  # 实例化后调用属性
+print(repr(user))
 print(repr(user.signup_ts))
 print(user.dict())
 
@@ -114,6 +115,8 @@ co_orm = CompanyOrm(
     name='Testing',
     domains=['example.com', 'foobar.com'],
 )
+c = CompanyModel.from_orm(co_orm)
+print(c.dict())
 
 print(CompanyModel.from_orm(co_orm))
 

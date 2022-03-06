@@ -2,8 +2,8 @@
 # -*- coding:utf-8 -*-
 # __author__ = '__Jack__'
 
+import uvicorn
 from typing import Optional
-
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -46,3 +46,6 @@ def result(city: str, city_info: CityInfo):
 #     return {'city': city, 'country': city_info.country, 'is_affected': city_info.is_affected}
 
 # 启动命令：uvicorn hello_world:app --reload
+
+if __name__ == '__main__':
+    uvicorn.run('hello_world:app', host='0.0.0.0', port=8000, reload=True, debug=True, workers=8)
