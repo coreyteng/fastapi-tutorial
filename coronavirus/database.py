@@ -12,7 +12,7 @@ SQLALCHEMY_DATABASE_URL = 'sqlite:///./coronavirus.sqlite3'
 engine = create_engine(
     # echo=True表示引擎将用repr()函数记录所有语句及其参数列表到日志
     # 由于SQLAlchemy是多线程，指定check_same_thread=False来让建立的对象任意线程都可使用。这个参数只在用SQLite数据库时设置
-    SQLALCHEMY_DATABASE_URL, encoding='utf-8', echo=True, connect_args={'check_same_thread': False}
+    SQLALCHEMY_DATABASE_URL, encoding='utf-8', echo=False, connect_args={'check_same_thread': False}
 )
 
 # 在SQLAlchemy中，CRUD都是通过会话(session)进行的，所以我们必须要先创建会话，每一个SessionLocal实例就是一个数据库session
